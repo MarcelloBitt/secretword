@@ -45,12 +45,12 @@ function App() {
     setGameStage(stages[1].name);
   };
   const verifyLetter = (letter) => {
-    const nomalizedLetter = letter.toLowerCase();
+    const nomalizedLetter = letter.toString().toLowerCase();
 
     if (
       guessedLetters.includes(nomalizedLetter) ||
       wrongLetters.includes(nomalizedLetter)
-    )
+    ) 
       return;
 
     if (letters.includes(nomalizedLetter)) {
@@ -63,6 +63,7 @@ function App() {
         ...actualWrongLetters,
         nomalizedLetter,
       ]);
+      setGuesses((actualGuesses) => actualGuesses - 1)
     }
   };
 
