@@ -19,6 +19,8 @@ const Game = ({
     setLetter("");
     letterInputRef.current.focus();
   };
+
+  const tentativas = { singular: "tentativa", plural: "tentativas" };
   return (
     <div className="game">
       <p className="points">
@@ -28,7 +30,10 @@ const Game = ({
       <h3 className="tip">
         Dica sobre a palavra: <span>{pickedCategory}</span>
       </h3>
-      <p>Você ainda tem {guesses} tentativas</p>
+      <p>
+        Você ainda tem {guesses}{" "}
+        {guesses > 1 ? tentativas.plural : tentativas.singular}
+      </p>
       <div className="wordContainer">
         {letters.map((letter, i) =>
           guessedLetters.includes(letter) ? (
